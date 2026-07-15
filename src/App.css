@@ -1428,11 +1428,15 @@ table {
     /* Horizontal scroll carousel on mobile */
     display: flex;
     overflow-x: auto;
-    gap: 16px;
+    gap: 14px;
     padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    /* Break out of page-container side padding so scroll goes edge-to-edge */
+    margin-left: -16px;
+    margin-right: -16px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    /* hide scrollbar but keep functionality */
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -1440,9 +1444,9 @@ table {
     display: none;
   }
   .toppicks-card {
-    flex: 0 0 220px;
+    flex: 0 0 200px;
     scroll-snap-align: start;
-    min-width: 220px;
+    min-width: 200px;
   }
   .toppicks-title {
     font-size: 1.75rem;
@@ -1461,22 +1465,41 @@ table {
 }
 
 @media (max-width: 576px) {
+  .toppicks-grid {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
   .toppicks-card {
-    flex: 0 0 200px;
-    min-width: 200px;
+    flex: 0 0 180px;
+    min-width: 180px;
   }
   .toppicks-title {
     font-size: 1.5rem;
   }
   .toppicks-content {
-    padding: 14px 16px 18px 16px;
+    padding: 12px 14px 16px 14px;
   }
   .toppicks-item-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   .toppicks-price {
-    font-size: 1.05rem;
+    font-size: 1rem;
     margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .toppicks-grid {
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .toppicks-card {
+    flex: 0 0 160px;
+    min-width: 160px;
   }
 }
 

@@ -41,12 +41,14 @@ const BuildParfait = () => {
           <div className="card border-0 rounded-4 p-4 p-md-5" style={{ backgroundColor: '#ffffff', boxShadow: 'var(--shadow-md)' }}>
 
             {/* Steps navigation */}
-            <div className="d-flex justify-content-between mb-4 border-bottom pb-3">
-              {['1. Yoghurt Base', '2. Fresh Fruits', '3. Crunch & Drizzles'].map((t, idx) => (
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem', borderBottom: '1px solid #eee', paddingBottom: '0.75rem', gap: '4px' }}>
+              {['1. Base', '2. Fruits', '3. Crunch'].map((t, idx) => (
                 <div key={idx} className="fw-bold text-center" style={{
                   color: step === (idx + 1) ? 'var(--primary-berry)' : 'var(--text-muted)',
-                  fontSize: '0.9rem',
-                  flex: '1'
+                  fontSize: '0.82rem',
+                  flex: '1',
+                  padding: '0 2px',
+                  wordBreak: 'break-word'
                 }}>
                   {t}
                 </div>
