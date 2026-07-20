@@ -492,7 +492,11 @@ table {
   .announcement-bar {
     font-size: 0.6rem;
     padding: 6px 10px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-align: center;
   }
   .promisepour-navbar {
     padding: 10px 14px;
@@ -537,6 +541,15 @@ table {
   }
   .promisepour-navbar {
     padding: 8px 12px;
+  }
+  .announcement-bar {
+    font-size: 0.58rem;
+    letter-spacing: 0.02em;
+    padding: 5px 8px;
+    gap: 4px;
+  }
+  .announcement-emoji {
+    font-size: 0.85em;
   }
 }
 
@@ -899,6 +912,32 @@ table {
   .hero-badges {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-heading {
+    font-size: 1.55rem;
+  }
+  .hero-script {
+    font-size: 1.55rem;
+  }
+  .hero-desc {
+    font-size: 0.88rem;
+  }
+  .hero-wrapper {
+    padding: 22px 12px;
+    gap: 22px;
+  }
+  .hero-image-arch {
+    max-width: 200px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+  }
+  .hero-btn-order,
+  .hero-btn-menu {
+    padding: 11px 16px;
+    font-size: 0.92rem;
   }
 }
 
@@ -1424,35 +1463,47 @@ table {
     margin-top: 24px;
     margin-bottom: 40px;
   }
+  .toppicks-header-row {
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+  .toppicks-header-left {
+    flex: 1;
+    min-width: 0;
+  }
+  .toppicks-view-all {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
   .toppicks-grid {
-    /* Horizontal scroll carousel on mobile */
-    display: flex;
-    overflow-x: auto;
-    gap: 14px;
-    padding-bottom: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
-    /* Break out of page-container side padding so scroll goes edge-to-edge */
-    margin-left: -16px;
-    margin-right: -16px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    overflow-x: visible;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    scroll-snap-type: none;
+    -webkit-overflow-scrolling: auto;
   }
   .toppicks-grid::-webkit-scrollbar {
     display: none;
   }
   .toppicks-card {
-    flex: 0 0 200px;
-    scroll-snap-align: start;
-    min-width: 200px;
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    scroll-snap-align: none;
+  }
+  .toppicks-img-wrapper {
+    min-height: auto;
+    width: 100%;
+    aspect-ratio: 1.1;
   }
   .toppicks-title {
     font-size: 1.75rem;
-  }
-  .toppicks-header-row {
-    margin-bottom: 20px;
   }
   .cart-toast {
     top: 20px;
@@ -1466,40 +1517,99 @@ table {
 
 @media (max-width: 576px) {
   .toppicks-grid {
-    margin-left: -16px;
-    margin-right: -16px;
-    padding-left: 16px;
-    padding-right: 16px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 12px;
   }
   .toppicks-card {
-    flex: 0 0 180px;
-    min-width: 180px;
+    flex: none;
+    min-width: 0;
+    width: 100%;
+  }
+  .toppicks-img-wrapper {
+    min-height: auto;
   }
   .toppicks-title {
     font-size: 1.5rem;
   }
   .toppicks-content {
-    padding: 12px 14px 16px 14px;
+    padding: 12px 12px 14px 12px;
   }
   .toppicks-item-title {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .toppicks-item-desc {
+    font-size: 0.82rem;
   }
   .toppicks-price {
-    font-size: 1rem;
-    margin-bottom: 12px;
+    font-size: 0.98rem;
+    margin-bottom: 10px;
+  }
+  .toppicks-btn-cart {
+    padding: 10px 10px;
+    font-size: 0.85rem;
+    gap: 5px;
+    border-radius: 10px;
+  }
+  .toppicks-btn-cart svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .toppicks-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
 @media (max-width: 400px) {
   .toppicks-grid {
-    margin-left: -12px;
-    margin-right: -12px;
-    padding-left: 12px;
-    padding-right: 12px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 16px;
   }
   .toppicks-card {
-    flex: 0 0 160px;
-    min-width: 160px;
+    flex: none;
+    min-width: 0;
+    width: 100%;
+  }
+  .toppicks-img-wrapper {
+    min-height: auto;
+  }
+  .toppicks-btn-cart {
+    padding: 9px 8px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .toppicks-card {
+    flex: none;
+    min-width: 0;
+    width: 100%;
+  }
+  .toppicks-img-wrapper {
+    min-height: auto;
+  }
+  .toppicks-item-title {
+    font-size: 0.85rem;
+  }
+  .toppicks-btn-cart {
+    padding: 8px 6px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+  .toppicks-btn-cart svg {
+    width: 12px;
+    height: 12px;
   }
 }
 
@@ -2089,6 +2199,7 @@ table {
 
 .footer-subscribe-input {
   flex: 1;
+  min-width: 0;  /* prevents flex overflow on narrow screens */
   padding: 12px 16px;
   border-radius: 8px;
   border: 1.5px solid rgba(222, 62, 117, 0.2);
@@ -2262,6 +2373,10 @@ table {
   cursor: pointer;
   transition: var(--transition-smooth);
   font-family: var(--font-ui);
+  min-height: 44px;   /* accessibility: minimum tap target */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu-tab:hover {
@@ -2484,15 +2599,26 @@ table {
   .menu-page-title { font-size: 2.1rem; }
   .menu-page-desc { font-size: 0.92rem; }
   .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .menu-tab { padding: 8px 16px; font-size: 0.85rem; }
+  .menu-tab { padding: 8px 14px; font-size: 0.85rem; min-height: 44px; }
 }
 
 @media (max-width: 480px) {
-  .menu-grid { grid-template-columns: 1fr; gap: 14px; }
+  .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .menu-page-title { font-size: 1.8rem; }
   .menu-manage-btn { bottom: 20px; right: 16px; padding: 11px 18px; font-size: 0.85rem; }
-  .menu-card-content { padding: 16px 18px 18px 18px; }
-  .menu-tabs { gap: 6px; }
+  .menu-card-content { padding: 14px 14px 16px 14px; }
+  .menu-card-title { font-size: 0.95rem; }
+  .menu-card-desc { font-size: 0.8rem; }
+  .menu-card-price { font-size: 1rem; }
+  .menu-tabs { gap: 5px; }
+}
+
+@media (max-width: 360px) {
+  .menu-grid { grid-template-columns: 1fr; gap: 12px; }
+  .menu-page-title { font-size: 1.6rem; }
+  .menu-card-content { padding: 12px 12px 14px 12px; }
+  .menu-manage-btn { bottom: 16px; right: 12px; padding: 10px 14px; font-size: 0.8rem; gap: 6px; }
+  .menu-btn-cart { padding: 10px 12px; font-size: 0.85rem; }
 }
 
 
@@ -3015,7 +3141,7 @@ table {
 @media (max-width: 576px) {
   /* Reduce page container padding on mobile */
   .page-container {
-    padding: 32px 16px;
+    padding: 28px 16px;
   }
   /* Bootstrap .row should not overflow on mobile */
   .row {
@@ -3025,13 +3151,169 @@ table {
   .display-5 {
     font-size: 1.8rem !important;
   }
+  /* Bootstrap cards used in Contact/About/Locations: remove excessive padding */
+  .card.rounded-4 {
+    border-radius: 16px !important;
+  }
+  /* Bootstrap form controls: ensure full width and proper sizing */
+  .form-control,
+  .form-select {
+    font-size: 1rem !important; /* prevents iOS auto-zoom on focus (must be >= 16px) */
+    min-width: 0;
+  }
+  /* Contact page form card inner padding */
+  .card.border-0.rounded-4.p-4 {
+    padding: 1.25rem !important;
+  }
 }
 
 @media (max-width: 400px) {
   .page-container {
-    padding: 24px 12px;
+    padding: 20px 12px;
   }
   .display-5 {
     font-size: 1.5rem !important;
+  }
+}
+
+/* ==========================================================================
+   Contact Page — Responsive
+   ========================================================================== */
+@media (max-width: 576px) {
+  /* Header row in Contact: settings button stacks nicely */
+  .d-flex.justify-content-between.align-items-center.mb-4 {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  /* Submit button text wrapping */
+  .btn.w-100.py-3.rounded-pill {
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
+    font-size: 0.95rem;
+  }
+}
+
+/* ==========================================================================
+   Build Parfait Page — Responsive
+   ========================================================================== */
+
+/* Step indicator nav: allow horizontal scroll on tiny screens */
+.bp-step-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.75rem;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.bp-step-nav::-webkit-scrollbar { display: none; }
+
+.bp-step-label {
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.82rem;
+  flex: 1;
+  padding: 0 2px;
+  word-break: break-word;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Step 3 Back + Order buttons: fluid share-width, wrap on tiny screens */
+.bp-step3-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.bp-step3-actions > * {
+  flex: 1;
+  min-width: 120px;
+}
+
+@media (max-width: 400px) {
+  .bp-step3-actions {
+    flex-direction: column;
+  }
+  .bp-step3-actions > * {
+    width: 100%;
+    flex: unset;
+  }
+}
+
+/* Fruit selection grid items: ensure min tap target */
+.bp-fruit-item {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   About Page — Responsive
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* Our Philosophy card: don't over-pad on small screens */
+  .row.align-items-center.g-5 {
+    --bs-gutter-y: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  /* About philosophy card padding */
+  .row.align-items-center .p-4.rounded-4 {
+    padding: 1.1rem !important;
+  }
+  /* Core promises list items */
+  .list-unstyled.d-flex.flex-column.gap-3 {
+    gap: 0.875rem !important;
+  }
+}
+
+/* ==========================================================================
+   Locations Page — Responsive
+   ========================================================================== */
+@media (max-width: 576px) {
+  /* Location cards: give them a comfortable min-height */
+  .card.h-100.border-0.rounded-4.p-4 {
+    min-height: 100px;
+    padding: 1rem !important;
+  }
+}
+
+/* ==========================================================================
+   360px / 320px Global Catch-all
+   ========================================================================== */
+@media (max-width: 360px) {
+  .page-container {
+    padding: 18px 10px;
+  }
+  .display-5 {
+    font-size: 1.4rem !important;
+    line-height: 1.2;
+  }
+  /* Prevent any fixed-width element from breaking out */
+  .card,
+  .rounded-4,
+  .follow-col,
+  .build-card,
+  .hero-wrapper {
+    min-width: 0;
+    max-width: 100%;
+  }
+  /* All form controls: iOS zoom prevention */
+  input,
+  select,
+  textarea {
+    font-size: 1rem !important;
+  }
+  /* Footer reduce padding further */
+  .footer-container {
+    padding: 0 10px;
+  }
+  .footer-top {
+    padding: 28px 0 18px 0;
   }
 }

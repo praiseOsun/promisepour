@@ -41,14 +41,10 @@ const BuildParfait = () => {
           <div className="card border-0 rounded-4 p-4 p-md-5" style={{ backgroundColor: '#ffffff', boxShadow: 'var(--shadow-md)' }}>
 
             {/* Steps navigation */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem', borderBottom: '1px solid #eee', paddingBottom: '0.75rem', gap: '4px' }}>
+            <div className="bp-step-nav">
               {['1. Base', '2. Fruits', '3. Crunch'].map((t, idx) => (
-                <div key={idx} className="fw-bold text-center" style={{
-                  color: step === (idx + 1) ? 'var(--primary-berry)' : 'var(--text-muted)',
-                  fontSize: '0.82rem',
-                  flex: '1',
-                  padding: '0 2px',
-                  wordBreak: 'break-word'
+                <div key={idx} className="bp-step-label" style={{
+                  color: step === (idx + 1) ? 'var(--primary-berry)' : 'var(--text-muted)'
                 }}>
                   {t}
                 </div>
@@ -99,7 +95,7 @@ const BuildParfait = () => {
                     <div key={idx} className="col-12 col-sm-6">
                       <div
                         onClick={() => toggleFruit(fruit)}
-                        className="p-3 rounded-3 border text-center fw-semibold cursor-pointer"
+                        className="p-3 rounded-3 border text-center fw-semibold bp-fruit-item"
                         style={{
                           borderColor: selection.fruits.includes(fruit) ? 'var(--primary-berry)' : '#e0e0e0',
                           backgroundColor: selection.fruits.includes(fruit) ? 'rgba(158, 27, 70, 0.04)' : 'transparent',
@@ -155,13 +151,13 @@ const BuildParfait = () => {
                   </select>
                 </div>
 
-                <div className="d-flex gap-2">
-                  <button onClick={() => setStep(2)} className="btn btn-light w-50 py-3 rounded-pill fw-bold">Back</button>
+                <div className="bp-step3-actions">
+                  <button onClick={() => setStep(2)} className="btn btn-light py-3 rounded-pill fw-bold">Back</button>
                   <a
                     href={`https://wa.me/2349027679677?text=Hello!%20I'd%20like%20to%20order%20a%20Custom%20Parfait%20with:%0A-%20Base:%20${encodeURIComponent(selection.base)}%0A-%20Fruits:%20${encodeURIComponent(selection.fruits.join(', '))}%0A-%20Granola:%20${encodeURIComponent(selection.crunch)}%0A-%20Drizzle:%20${encodeURIComponent(selection.drizzle)}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn w-50 py-3 rounded-pill fw-bold text-white d-flex align-items-center justify-content-center gap-2"
+                    className="btn py-3 rounded-pill fw-bold text-white d-flex align-items-center justify-content-center gap-2"
                     style={{ backgroundColor: 'var(--primary-berry)' }}
                   >
                     Order custom via WhatsApp
